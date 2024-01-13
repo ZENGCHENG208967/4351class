@@ -81,18 +81,14 @@ public class Flight {
         
     }  
 
-    public void setDepartureTime(int hour, int minute) {
+   public void setTime(boolean isArrivalTime, int hour, int minute) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm ");     //Defines the date format needed
         Calendar calendar1 = new GregorianCalendar(2016, 12, 5, hour, minute);   //creates a date from Calendar class
+        if(isArrivalTime)
+            this.arrivalTime = sdf.format(calendar1.getTime());
+        else
         this.departureTime = sdf.format(calendar1.getTime());
-        
-    }  
-
-    public void setArrivalTime(int hour, int minute) {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm ");     //Defines the date format needed
-        Calendar calendar1 = new GregorianCalendar(2016, 12, 5, hour, minute);   //creates a date from Calendar class
-        this.arrivalTime = sdf.format(calendar1.getTime());
-    }  
+    } 
 
     /*public void setSections(FlightSection[] sections) {
         this.sections = sections;
